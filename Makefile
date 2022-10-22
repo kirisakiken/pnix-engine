@@ -3,9 +3,9 @@ LDFLAGS = -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 
 EXECUTABLE_NAME = PnixEngine
 
-build: clean main.cpp
+build: clean *.cpp *.hpp
 	mkdir debug
-	g++ $(CFLAGS) -o debug/$(EXECUTABLE_NAME) main.cpp $(LDFLAGS)
+	g++ $(CFLAGS) -o debug/$(EXECUTABLE_NAME) *.cpp $(LDFLAGS)
 
 run: build
 	./debug/$(EXECUTABLE_NAME)
@@ -17,3 +17,6 @@ test: build
 
 clean:
 	rm -rf debug
+
+shader-compile:
+	./compile.sh

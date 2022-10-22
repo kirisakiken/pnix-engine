@@ -3,4 +3,8 @@ project(pnix_engine)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(pnix_engine main.cpp)
+add_executable(pnix_engine main.cpp
+        pnix_window.cpp
+        pnix_pipeline.cpp
+        pnix_device.cpp
+        first_app.cpp)
