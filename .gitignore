@@ -1,0 +1,6 @@
+# cmake generated
+/cmake-build-debug
+/debug
+
+# IDE generated
+/.idea
