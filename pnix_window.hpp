@@ -14,6 +14,7 @@ namespace pnix {
     PnixWindow &operator = (const PnixWindow&) = delete;
 
     bool shouldClose();
+    VkExtent2D getExtent() const;
     void createWindowSurface(VkInstance instance, VkSurfaceKHR* surface);
 
   private:

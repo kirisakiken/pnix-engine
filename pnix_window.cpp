@@ -17,6 +17,10 @@ namespace pnix {
     return glfwWindowShouldClose(window);
   }
 
+  VkExtent2D PnixWindow::getExtent() const {
+    return {static_cast<uint32_t>(width), static_cast<uint32_t>(height)};
+  }
+
   void PnixWindow::createWindowSurface(VkInstance instance, VkSurfaceKHR* surface) {
     if (glfwCreateWindowSurface(instance, window, nullptr, surface) != VK_SUCCESS)
       throw std::runtime_error("Failed to create window surface");
