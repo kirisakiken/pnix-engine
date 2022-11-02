@@ -4,6 +4,7 @@
 #include "pnix_pipeline.hpp"
 #include "pnix_device.hpp"
 #include "pnix_swap_chain.hpp"
+#include "pnix_model.hpp"
 
 #include <memory>
 #include <vector>
@@ -23,6 +24,7 @@ namespace pnix {
     void run();
 
   private:
+    void loadModels();
     void createPipelineLayout();
     void createPipeline();
     void createCommandBuffers();
@@ -34,5 +36,6 @@ namespace pnix {
     std::unique_ptr<PnixPipeline> pnixPipeline;
     VkPipelineLayout pipelineLayout;
     std::vector<VkCommandBuffer> commandBuffers;
+    std::unique_ptr<PnixModel> pnixModel;
   };
 }

@@ -8,4 +8,5 @@ add_executable(pnix_engine main.cpp
         pnix_pipeline.cpp
         pnix_device.cpp
         pnix_swap_chain.cpp
+        pnix_model.cpp
         first_app.cpp)

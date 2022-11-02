@@ -5,6 +5,7 @@
 
 namespace pnix {
   FirstApp::FirstApp() {
+    loadModels();
     createPipelineLayout();
     createPipeline();
     createCommandBuffers();
@@ -21,6 +22,16 @@ namespace pnix {
     }
 
     vkDeviceWaitIdle(pnixDevice.device());
+  }
+
+  void FirstApp::loadModels() {
+    std::vector<PnixModel::Vertex> vertices {
+        {{0.0f, -0.5f}},
+        {{0.5f, 0.5f}},
+        {{-0.5f, 0.5f}},
+    };
+
+    pnixModel = std::make_unique<PnixModel>(pnixDevice, vertices);
   }
 
   void FirstApp::createPipelineLayout() {
@@ -84,7 +95,9 @@ namespace pnix {
       vkCmdBeginRenderPass(commandBuffers[i], &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
 
       pnixPipeline->bind(commandBuffers[i]);
-      vkCmdDraw(commandBuffers[i], 3, 1, 0, 0);
+      // Bind/Draw Models
+      pnixModel->bind(commandBuffers[i]);
+      pnixModel->draw(commandBuffers[i]);
 
       vkCmdEndRenderPass(commandBuffers[i]);
       if (vkEndCommandBuffer(commandBuffers[i]) != VK_SUCCESS)
