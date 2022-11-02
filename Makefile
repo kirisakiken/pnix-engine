@@ -3,7 +3,7 @@ LDFLAGS = -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 
 EXECUTABLE_NAME = PnixEngine
 
-build: clean *.cpp *.hpp
+build: clean shader-compile *.cpp *.hpp
 	mkdir debug
 	g++ $(CFLAGS) -o debug/$(EXECUTABLE_NAME) *.cpp $(LDFLAGS)
 
