@@ -26,9 +26,9 @@ namespace pnix {
 
   void FirstApp::loadModels() {
     std::vector<PnixModel::Vertex> vertices {
-        {{0.0f, -0.5f}},
-        {{0.5f, 0.5f}},
-        {{-0.5f, 0.5f}},
+        {{0.0f, -0.5f}, {1.0f, 0.0f, 0.0f}},
+        {{0.5f, 0.5f}, {0.0f, 1.0f, 0.0f}},
+        {{-0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}},
     };
 
     pnixModel = std::make_unique<PnixModel>(pnixDevice, vertices);
