@@ -34,9 +34,9 @@ namespace pnix {
 
     // Not copyable or movable
     PnixDevice(const PnixDevice &) = delete;
-    void operator=(const PnixDevice &) = delete;
+    PnixDevice& operator=(const PnixDevice &) = delete;
     PnixDevice(PnixDevice &&) = delete;
-    PnixDevice &operator=(PnixDevice &&) = delete;
+    PnixDevice& operator=(PnixDevice &&) = delete;
 
     VkCommandPool getCommandPool() { return commandPool; }
     VkDevice device() { return device_; }

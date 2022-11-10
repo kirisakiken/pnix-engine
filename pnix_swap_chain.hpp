@@ -16,7 +16,7 @@ namespace pnix {
     ~PnixSwapChain();
 
     PnixSwapChain(const PnixSwapChain &) = delete;
-    void operator=(const PnixSwapChain &) = delete;
+    PnixSwapChain& operator=(const PnixSwapChain &) = delete;
 
     VkFramebuffer getFrameBuffer(int index) { return swapChainFramebuffers[index]; }
     VkRenderPass getRenderPass() { return renderPass; }

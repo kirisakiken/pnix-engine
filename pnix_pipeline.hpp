@@ -30,7 +30,7 @@ namespace pnix {
         );
     ~PnixPipeline();
     PnixPipeline(const PnixPipeline&) = delete;
-    void operator=(const PnixPipeline&) = delete;
+    PnixPipeline& operator=(const PnixPipeline&) = delete;
 
     void bind(VkCommandBuffer commandBuffer);
     static PipelineConfigInfo defaultPipelineConfigInfo(uint32_t width, uint32_t height);
